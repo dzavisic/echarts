@@ -10,15 +10,15 @@ import {EChartsOption, SeriesOption} from 'echarts';
 export class ChartComponent implements OnInit {
 
   types: any = [
-    'line',
-    'bar',
-    'scatter',
-    'pie',
-    'tree',
-    'gauge',
     'funnel',
-    'effectScatter',
+    'pie',
+    'gauge',
+    'bar',
     'pictorialBar',
+    'effectScatter',
+    'line',
+    'scatter',
+    'tree',
   ];
 
   constructor() {
@@ -40,6 +40,12 @@ export class ChartComponent implements OnInit {
       series:
         {
           data: [150, 230, 224, 218, 135, 147, 260],
+          universalTransition: {
+            enabled: true,
+            delay: function (idx, count) {
+              return Math.random() * 1000;
+            }
+          },
           type: 'line'
         },
     };
